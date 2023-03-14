@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
+
 void main() {
   dartVariable();
   dartNumberVariable();
+  dartString();
+  dartDynamic();
 }
 
 void dartVariable() {
@@ -96,4 +100,42 @@ void numKeyword() {
 
   print("num int = " + c.toString());
   print("num double = " + d.toString());
+}
+
+void dartString() {
+  // Membuat String
+  String firstName = 'Masdika';
+  String lastName = "Ilhan";
+  print(firstName);
+  print(lastName);
+
+  print("\nString Interpolatin");
+  stringInterpolation();
+  print("\nBackSlash Character");
+  backslashChar();
+}
+
+void stringInterpolation() {
+  // String mendukung expression dimana kita bisa mengambil variable lain dalam string
+  // ${isiExpression}
+  // $isiExpression
+  String firstName = 'Masdika';
+  String lastName = "Ilhan";
+  String fullname = "String Interpolation : $firstName ${lastName}";
+  print(fullname);
+}
+
+void backslashChar() {
+  print('Karakter bintang *\nkarakter kutip1 : \' \nkarakter dollar : \$');
+}
+
+void dartDynamic() {
+  print("\nDynamic Variables");
+  //Variable yang bisa menampung semua jenis data
+  dynamic all = 100;
+  print(all);
+  all = "Bapakmu";
+  print(all);
+  all = 20.7;
+  print(all);
 }

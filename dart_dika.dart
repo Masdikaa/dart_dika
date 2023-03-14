@@ -1,10 +1,16 @@
-import 'package:flutter/cupertino.dart';
-
 void main() {
   dartVariable();
   dartNumberVariable();
   dartString();
   dartDynamic();
+  dartOperasiAritmatika();
+  dartTypeTestOperator();
+  dartList();
+  dartSet();
+  dartMap();
+  dartNull();
+  darTernaryOP();
+  dartForIn();
 }
 
 void dartVariable() {
@@ -138,4 +144,130 @@ void dartDynamic() {
   print(all);
   all = 20.7;
   print(all);
+}
+
+void dartOperasiAritmatika() {
+  // + ,- ,* ,/ ,~/ ,%
+  print("\nOperasi artimatika dart");
+  var result1 = 10 / 3;
+  var result2 = 10 ~/ 3;
+  var result3 = 10 % 3;
+  print("$result1 \n$result2 \n$result3");
+}
+
+void dartTypeTestOperator() {
+  print("\nDart Type Test Operator");
+  print("as is is!");
+  // as -> melakukan konversi secara paksa
+  dynamic variable = 100;
+  var intVar = variable as int;
+  //var stringVar = variable as String;
+  print("intVar = $intVar -> ${intVar.runtimeType}");
+
+  // is -> true jika object sesuai tipe data
+  var isInt = variable is int;
+  print(isInt);
+  isInt = intVar is int;
+  print(isInt);
+  // is! -> true jika object tak sesuai tipe data
+}
+
+void dartList() {
+  print("\Dart List");
+  // Berisikan kumpulan data / array
+  // Menggunakan []
+  // Di Dart semua tipe data adalah object, jadi list sendirimemiliki properti, method dan operator
+  List<int> intList = [1, 2, 3];
+  var numList = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9];
+  final finalNumList = <int>[1, 2, 3, 4, 5, 6, 7, 8];
+
+  print(intList);
+  print(numList.length);
+  addDataList();
+}
+
+void addDataList() {
+  print("\nMenambahkan data ke dalam list");
+  var intList = <int>[10, 11, 12, 13];
+  print(intList);
+  intList.add(14);
+  print(intList);
+
+  print("\nRemove data list");
+  intList.removeAt(1);
+  print(intList);
+}
+
+void dartSet() {
+  print("n\Dart Set");
+  // Set sama dengan list
+  // Set tidak bisa memiliki data duplikat
+  // pada set tidak ada indeks
+  Set<String> nama = {"Masdika", "Ilhan", "Mansiz"};
+  print(nama);
+  var hewan = <String>{"Kucing", "Burung", "Kuda", "Sapi"};
+  print(hewan);
+
+  nama.add("Ilhan");
+  print(nama);
+
+  nama.remove("Mansiz");
+  print(nama);
+
+  nama.remove("Muhammad");
+  print(nama);
+}
+
+void dartMap() {
+  print("\nDart map");
+  // Map sama dengan list
+  // map merupakan tipe data key value
+  // key = indeks, value = datanya
+  // Map<TipeKey, TipeValue> namaVariable = {};
+  // var namaVariable = Map<TipeKey, TipeValue> ();
+  // var namaVariable = <TipeKey, TipeValue>{};
+
+  Map<String, String> name = {
+    "first": "Masdika",
+    "midle": "Ilhan",
+    "last": "Mansiz"
+  };
+  var produck = Map<String, String>();
+  var address = <String, String>{};
+
+  print(name);
+  print(name["first"]);
+}
+
+void dartNull() {
+  print("\nNull keyword");
+  int? nullInt;
+  String? nullString = null;
+  print(nullInt);
+  print(nullString);
+  defaultValueNull();
+}
+
+void darTernaryOP() {
+  print("\nTernary Dart");
+  int nilai = 90;
+  var grade = nilai > 75 ? 'Anda Lulus' : 'Anda Bodoh';
+  print(grade);
+}
+
+void defaultValueNull() {
+  print("\nDefault Value Null");
+  String? tamu;
+  //tamu = "Dika";
+  var namaTamu = tamu ?? 'Irfan';
+  print(namaTamu);
+}
+
+void dartForIn() {
+  print("\nFor In Dart Loop");
+  var nameList = <String>["Dika", "Juan", "Wildan"];
+
+  for (var value in nameList) {
+    print(value);
+  }
 }

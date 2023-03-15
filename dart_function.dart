@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
 void main() {
   // Main function adalah function ang digunakan sebagai gerbang masuk ke dalam dart
   // Function ini akan di jalankan pertama kali oleh dart
@@ -17,6 +20,14 @@ void main() {
   innerFunctionDart();
   higterOrderFunction();
   anonymousFunction();
+  anonymousAsParameter();
+  print(factorialRecursive(4));
+  //? NOTE
+  /*
+  1. Scope -> variable atau function yang hanya bisa di akses di dalam blok {} area mereka di buat.
+  2. Closure -> Sebuah Variable dapat berinteraksi di dalam scope yang sama
+  3. Fungsi Recursive -> function yang memanggil dirinya sendiri, biasa di gunakan dalam kasus faktorial
+  */
 }
 
 void parameterFunc(String nama, String alamat) {
@@ -149,4 +160,20 @@ void anonymousFunction() {
 
   print(toUpperCase(nama1));
   print(toLowerCase(nama2));
+}
+
+void anonymousAsParameter() {
+  print("\nAnonymous As Parameter in Highter Order Funcion");
+  funcAsParameter("Masdika Jagoan Mamah", (name) {
+    return name.toUpperCase();
+  });
+}
+
+int factorialRecursive(int angka) {
+  // Salah satu penerapan fungsi rekursif
+  if (angka == 1) {
+    return 1;
+  } else {
+    return angka * factorialRecursive(angka - 1);
+  }
 }

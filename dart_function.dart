@@ -1,5 +1,11 @@
 void main() {
-  print("Function Dart");
+  // Main function adalah function ang digunakan sebagai gerbang masuk ke dalam dart
+  // Function ini akan di jalankan pertama kali oleh dart
+  // Main funtion memiliki parameter opsional yang namanya arguments yang berupa list String
+  // Jalankan arguments di ternminal dengan dart namaFile.dart argumen1 argumen2 ,argument3
+  // print("Arguments : $args");
+
+  print("Function Dart\n");
 
   parameterFunc("Masdika", "Ponorogo");
   optionalParameterFunc();
@@ -8,6 +14,9 @@ void main() {
   requiredParameterFunc();
   returnValueFunc();
   shortExpression();
+  innerFunctionDart();
+  higterOrderFunction();
+  anonymousFunction();
 }
 
 void parameterFunc(String nama, String alamat) {
@@ -88,3 +97,56 @@ void shortExpression() {
 }
 
 int multiply(int a, int b) => a * b;
+
+void innerFunctionDart() {
+  print("\nDart Inner Function");
+
+  void sayHay() {
+    print("Hay All");
+    print("Ini Inner Function");
+  }
+
+  sayHay();
+}
+
+void higterOrderFunction() {
+  print("\nHigter Order Function");
+  /*
+  Berguna ketika ingin mendapatkan functin yang lebih general dan ingin input
+  yang flexible berupa function yang bisa di deklarasikan penggunaketika
+  memanggil function tsb
+  */
+  print(
+      "Adalah function yang menggunakan function sebagai variable, parameter, return value");
+  funcAsParameter("Masdika", filterBadWord);
+  funcAsParameter("gila", filterBadWord);
+}
+
+String filterBadWord(String name) {
+  if (name == "gila") {
+    name = "****";
+  }
+  return name;
+}
+
+void funcAsParameter(String name, String Function(String) filter) {
+  var filteredName = filter(name);
+  print("Hi $filteredName");
+}
+
+void anonymousFunction() {
+  print("\nAnonymous Function ");
+  // adalah function yang tidak memiliki nama
+  // atau biasa di sebut lamda
+
+  dynamic nama1 = "masdika ilhan mansiz";
+  dynamic nama2 = "MASDIKA ILHAN MANSIZ";
+
+  var toUpperCase = (String name) {
+    return name.toUpperCase();
+  };
+  var toLowerCase = (String name) => name.toLowerCase();
+
+  print(toUpperCase(nama1));
+  print(toLowerCase(nama2));
+}
